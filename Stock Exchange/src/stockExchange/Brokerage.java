@@ -1,18 +1,18 @@
 package stockExchange;
 
-public class Brokerage {
+public class Brokerage implements Login {
 	
 	
 	public Brokerage(StockExchange exchange) {
 		
 	}
 
-	public void addUser(String string, String string2) {
-		
+	public int addUser(String string, String string2) {
+		return -1;
 	}
 
-	public void login(String string, String string2) {
-		
+	public int login(String string, String string2) {
+		return -1;
 	}
 
 }
