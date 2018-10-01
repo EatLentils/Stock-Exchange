@@ -1,7 +1,8 @@
 package stockExchange;
 
 public class Brokerage {
-
+	
+	
 	public Brokerage(StockExchange exchange) {
 		
 	}
