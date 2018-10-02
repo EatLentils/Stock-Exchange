@@ -4,9 +4,9 @@ import java.awt.GraphicsConfiguration;
 
 public class Trader extends java.lang.Object implements java.lang.Comparable<Trader> {
 	
-	private Brokerage brokerage;
-	private String name, password;
-	private String[] messages;
+	public Brokerage brokerage;
+	public  String name, password;
+	public String[] messages;
 	
 	public Trader(Brokerage brokerage, String name, String pswd){
 		
