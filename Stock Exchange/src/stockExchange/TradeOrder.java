@@ -19,7 +19,7 @@ public class TradeOrder {
 		
 	}
 	
-	public Trader getMyTrader(){
+	public Trader getTrader(){
 		return myTrader;
 	}
 	
@@ -27,20 +27,34 @@ public class TradeOrder {
 		return symbol;
 	}
 	
-	public boolean getBuyOrder(){
-		return buyOrder;
-	}
-	
-	public boolean getMarketOrder(){
-		return marketOrder;
-	}
-	
-	public int getNumShares(){
+	public int getShares(){
 		return numShares;
 	}
 	
 	public double getPrice(){
 		return price;
 	}
+	
+	public void subtractShares(int shares){
+		numShares -= shares;
+	}
+	
+	public boolean isBuy(){
+		return false;
+	}
+	
+	public boolean isLimit(){
+		return false;
+	}
+	
+	public boolean isMarket(){
+		return false;
+	}
+	
+	public boolean isSell(){
+		return false;
+	}
+	
+
 
 }
