@@ -69,4 +69,5 @@ public class Trader extends java.lang.Object implements java.lang.Comparable<Tra
 			msgNum++;
 		}
 	}
+	
 }
