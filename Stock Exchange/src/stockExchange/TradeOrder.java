@@ -6,7 +6,7 @@ public class TradeOrder {
 	private String symbol;
 	private boolean buyOrder, marketOrder;
 	private int numShares;
-	private double price;
+	public double price;
 
 	public TradeOrder(Trader myTrader, String symbol, boolean buyOrder, boolean marketOrder, int numShares, double price) {
 		
