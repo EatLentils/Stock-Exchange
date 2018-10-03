@@ -45,6 +45,8 @@ public class Trader extends java.lang.Object implements java.lang.Comparable<Tra
 
 	public void quit() {
 		
+		brokerage.logout(this);
+		
 	}
 
 	public void getQuote(String symbol) {
