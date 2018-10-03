@@ -1,4 +1,4 @@
-DONE:
+Given:
 	Login.java
 	LoginWindow.java
 	SafeTrade.java
@@ -7,8 +7,8 @@ Done?:
 	StockExchange.java
 	Trader.java
 	PriceComparator.java
+	TradeOrder.java
 Working:
 	Brokerage.java
-	TradeOrder.java
 Not Done:
 	Stock.java
