@@ -1,0 +1,14 @@
+DONE:
+	Login.java
+	LoginWindow.java
+	SafeTrade.java
+	TraderWondow.java
+Done?:
+	StockExchange.java
+	Trader.java
+	PriceComparator.java
+Working:
+	Brokerage.java
+	TradeOrder.java
+Not Done:
+	Stock.java
