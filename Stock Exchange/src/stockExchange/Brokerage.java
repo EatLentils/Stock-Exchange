@@ -8,6 +8,7 @@ public class Brokerage implements Login
 	public Brokerage(StockExchange exchange)
 	{
 		TM = new TreeMap<String, Trader>();
+		tradersLoggedIn = new ArrayList<String>();
 	}
 	public int addUser(java.lang.String name, java.lang.String password)
 	{
