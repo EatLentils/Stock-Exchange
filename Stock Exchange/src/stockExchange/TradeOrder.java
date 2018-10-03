@@ -44,7 +44,7 @@ public class TradeOrder {
 	}
 	
 	public boolean isLimit(){
-		return false;
+		return !marketOrder;
 	}
 	
 	public boolean isMarket(){
@@ -52,7 +52,7 @@ public class TradeOrder {
 	}
 	
 	public boolean isSell(){
-		return false;
+		return !buyOrder;
 	}
 	
 
