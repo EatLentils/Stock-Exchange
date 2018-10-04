@@ -2,7 +2,7 @@ package stockExchange;
 
 import java.util.*;
 
-public class PriceComparator {
+public class PriceComparator implements Comparator<TradeOrder> {
 	
 	boolean asc = true;
 	
