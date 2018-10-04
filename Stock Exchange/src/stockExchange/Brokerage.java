@@ -32,15 +32,6 @@ public class Brokerage implements Login
 			return 0;
 		}
 	}
-	
-	public boolean thisIsATest(String name){
-		for(Trader i:tradersLoggedIn){
-			if(i.getName().equals(name)){
-				return true;
-			}
-		}
-		return false;
-	}
 
 	public int login(String name, String password)
 	{
@@ -49,18 +40,13 @@ public class Brokerage implements Login
 			return -1;
 		else if (password.length() < 2 || password.length() > 10)
 			return -2;
-		else if(thisIsATest(name))
+		else if(TM.get(name) == null)
 			return -3;
 		else
 		{
-			Set<String> set = TM.keySet();
-			for(String trad : set){
-				if (name == trad){
-					tradersLoggedIn.get(name);
-				}
-			}
-			openWindow();
-			if()
+			Trader trade = TM.get(name);
+			trade.openWindow();
+			tradersLoggedIn.add(trade);
 			return 0;
 		}
 	}
