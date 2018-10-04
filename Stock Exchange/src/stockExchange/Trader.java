@@ -1,12 +1,13 @@
 package stockExchange;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Trader extends java.lang.Object implements java.lang.Comparable<Trader> {
 	
 	public Brokerage brokerage;
-	public  String name, password;
-	public ArrayList<String> messages;
+	public String name, password;
+	public LinkedList<String> messages;
+	public TraderWindow myWindow;
 	
 	public Trader(Brokerage brokerage, String name, String pswd){
 		
@@ -40,20 +41,26 @@ public class Trader extends java.lang.Object implements java.lang.Comparable<Tra
 	
 	public void openWindow(){
 		
-		TraderWindow myWindow = new TraderWindow(this);
+		myWindow = new TraderWindow(this);
 	}
 
 	public void quit() {
 		
+		
+		myWindow = null;
 		brokerage.logout(this);
 		
 	}
 
 	public void getQuote(String symbol) {
 		
+		brokerage.getQuote(this, symbol);
+		
 	}
 
 	public void placeOrder(TradeOrder tradeOrder) {
+		
+		brokerage.placeOrder(tradeOrder);
 		
 	}
 
@@ -65,11 +72,8 @@ public class Trader extends java.lang.Object implements java.lang.Comparable<Tra
 	public void recieveMessage(String msg){
 		
 		messages.add(msg);
-		int msgNum = 1;
-		for(String i:messages){
-			System.out.println("Message " + msgNum + ": " + i);
-			msgNum++;
-		}
+		for(int i = 0; i < messages.size(); i++)
+			myWindow.showMessage(messages.get(i));
 	}
 	
 }
