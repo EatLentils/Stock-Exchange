@@ -5,6 +5,7 @@ public class Brokerage implements Login
 {
 	TreeMap<String, Trader> TM;
 	TreeSet<Trader> tradersLoggedIn;
+	public Trader openWindow;
 	public Brokerage(StockExchange exchange)
 	{
 		TM = new TreeMap<String, Trader>();
@@ -33,7 +34,7 @@ public class Brokerage implements Login
 	}
 	
 	public boolean thisIsATest(String name){
-		for(String i:tradersLoggedIn){
+		for(Trader i:tradersLoggedIn){
 			if(i.equals(name)){
 				return true;
 			}
@@ -54,6 +55,7 @@ public class Brokerage implements Login
 		{
 			tradersLoggedIn.add(name);
 			openWindow();
+			if()
 			return 0;
 		}
 	}
@@ -62,5 +64,12 @@ public class Brokerage implements Login
 	{
 		
 	}
-
+	public void logout(Trader trader)
+	{
+		
+	}
+	public void placeOrder(TradeOrder tradeOrder)
+	{
+		
+	}
 }
