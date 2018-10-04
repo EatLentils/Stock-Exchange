@@ -57,7 +57,7 @@ public class Brokerage implements Login
 	}
 	public void logout(Trader trader)
 	{
-		
+		tradersLoggedIn.remove(trader);
 	}
 	public void placeOrder(TradeOrder tradeOrder)
 	{
