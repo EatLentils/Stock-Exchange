@@ -35,7 +35,7 @@ public class Brokerage implements Login
 	
 	public boolean thisIsATest(String name){
 		for(Trader i:tradersLoggedIn){
-			if(i.equals(name)){
+			if(i.getName().equals(name)){
 				return true;
 			}
 		}
@@ -53,7 +53,12 @@ public class Brokerage implements Login
 			return -3;
 		else
 		{
-			tradersLoggedIn.add(name);
+			Set<String> set = TM.keySet();
+			for(String trad : set){
+				if (name == trad){
+					tradersLoggedIn.get(name);
+				}
+			}
 			openWindow();
 			if()
 			return 0;
