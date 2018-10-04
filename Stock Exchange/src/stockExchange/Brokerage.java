@@ -4,11 +4,11 @@ import java.util.*;
 public class Brokerage implements Login
 {
 	TreeMap<String, Trader> TM;
-	ArrayList<String> tradersLoggedIn;
+	TreeSet<Trader> tradersLoggedIn;
 	public Brokerage(StockExchange exchange)
 	{
 		TM = new TreeMap<String, Trader>();
-		tradersLoggedIn = new ArrayList<String>();
+		tradersLoggedIn = new TreeSet<Trader>();
 	}
 	public int addUser(java.lang.String name, java.lang.String password)
 	{
