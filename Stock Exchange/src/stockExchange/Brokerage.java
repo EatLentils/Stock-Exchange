@@ -35,10 +35,10 @@ public class Brokerage implements Login
 	public boolean thisIsATest(String name){
 		for(String i:tradersLoggedIn){
 			if(i.equals(name)){
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	public int login(String name, String password)
@@ -52,6 +52,7 @@ public class Brokerage implements Login
 		else
 		{
 			tradersLoggedIn.add(name);
+			openWindow();
 			return 0;
 		}
 	}
