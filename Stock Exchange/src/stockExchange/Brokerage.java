@@ -4,11 +4,11 @@ import java.util.*;
 public class Brokerage implements Login
 {
 	TreeMap<String, Trader> TM;
-	ArrayList<String> tradersLoggedIn;
+	TreeSet<Trader> tradersLoggedIn;
 	public Brokerage(StockExchange exchange)
 	{
 		TM = new TreeMap<String, Trader>();
-		tradersLoggedIn = new ArrayList<String>();
+		tradersLoggedIn = new TreeSet<Trader>();
 	}
 	public int addUser(java.lang.String name, java.lang.String password)
 	{
@@ -43,6 +43,7 @@ public class Brokerage implements Login
 
 	public int login(String name, String password)
 	{
+		
 		if (name.length() < 4 || name.length() > 10)
 			return -1;
 		else if (password.length() < 2 || password.length() > 10)
@@ -59,10 +60,6 @@ public class Brokerage implements Login
 	
 	public void getQuote(Trader trader, java.lang.String symbol)
 	{
-		
-	}
-	public void logout(Trader trader) {
-		
 		
 	}
 
