@@ -17,7 +17,7 @@ public class StockExchange {
 		stocks.put(symbol, new Stock(symbol, name, price));
 	}
 	
-	public static void placeOrder(TradeOrder order){
+	public void placeOrder(TradeOrder order){
 		stocks.get(order.getSymbol()).placeOrder(order);
 	}
 }
