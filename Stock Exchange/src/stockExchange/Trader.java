@@ -17,9 +17,12 @@ public class Trader extends java.lang.Object implements java.lang.Comparable<Tra
 		
 	}
 	
-	public boolean equals(Trader other){
+	public boolean equals(Object other){
 		
-		return name.equals(other.name);
+		if(!(other instanceof Trader)){
+			return false;
+		}
+		return name.equals(((Trader)other).name);
 		
 	}
 
