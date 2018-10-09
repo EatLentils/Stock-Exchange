@@ -6,8 +6,10 @@ public class Brokerage implements Login
 	TreeMap<String, Trader> TM;
 	TreeSet<Trader> tradersLoggedIn;
 	public Trader openWindow;
+	private StockExchange exchange;
 	public Brokerage(StockExchange exchange)
 	{
+		this.exchange = exchange;
 		TM = new TreeMap<String, Trader>();
 		tradersLoggedIn = new TreeSet<Trader>();
 	}
@@ -51,9 +53,10 @@ public class Brokerage implements Login
 		}
 	}
 	
-	public void getQuote(Trader trader, java.lang.String symbol)
+	public void getQuote(Trader trader, String symbol)
 	{
-		
+		String quote = exchange.getQuote(symbol);
+		trader.recieveMessage(quote);
 	}
 	public void logout(Trader trader)
 	{
