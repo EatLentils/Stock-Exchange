@@ -21,7 +21,20 @@ public class Stock {
 	}
 
 	public void placeOrder(TradeOrder order) {
+		String msg = "New Order: ";
+		if(order.isBuy()){
+			buyOrders.add(order);
+			msg += "Buy " + symbol + " (" + name + ")\n";
+		}else{
+			sellOrders.add(order);
+			msg += "Sell " + symbol + " (" + name + ")\n";
+		}
 		
+		if(order.isMarket()){
+			msg += order.getShares() + " shares at market";
+		}else{
+			msg += order.getShares() + " shares at " + order.getPrice();
+		}
 	}
 	
 	public String getQuote(){

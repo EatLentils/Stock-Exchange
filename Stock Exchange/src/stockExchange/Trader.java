@@ -72,8 +72,10 @@ public class Trader extends java.lang.Object implements java.lang.Comparable<Tra
 	public void recieveMessage(String msg){
 		
 		messages.add(msg);
-		for(int i = 0; i < messages.size(); i++)
-			myWindow.showMessage(messages.get(i));
+		if(myWindow != null){
+			for(int i = 0; i < messages.size(); i++)
+				myWindow.showMessage(messages.remove(i));
+		}
 	}
 	
 }
