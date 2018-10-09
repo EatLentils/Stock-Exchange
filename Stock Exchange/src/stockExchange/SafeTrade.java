@@ -11,10 +11,10 @@ public class SafeTrade
   {
     StockExchange exchange = new StockExchange();
     exchange.listStock("ELB", "ElevensLab", 12.33);
-    exchange.listStock("NSTL", "Nasty Loops Inc.", 0.25);
+    exchange.listStock("NSTL", "Nasty Lööps Inc.", 0.25);
     exchange.listStock("GGGL", "Giggle.com", 28.00);
     exchange.listStock("MATI", "M and A Travel Inc.", 28.20);
-    exchange.listStock("DDLC", "Dulce De Leche Corp.", 57.50);
+    exchange.listStock("DDLC", "Doki Doki Literature Club", 57.50);
     exchange.listStock("SAFT", "SafeTrade.com Inc.", 322.45);
 
     Brokerage safeTrade = new Brokerage(exchange);
