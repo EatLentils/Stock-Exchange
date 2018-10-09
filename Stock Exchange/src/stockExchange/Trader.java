@@ -10,7 +10,7 @@ public class Trader extends java.lang.Object implements java.lang.Comparable<Tra
 	public TraderWindow myWindow;
 	
 	public Trader(Brokerage brokerage, String name, String pswd){
-		
+		messages = new LinkedList<String>();
 		this.brokerage = brokerage;
 		this.name = name;
 		password = pswd;

@@ -34,7 +34,7 @@ public class Stock {
 				+ " Ask: ";
 		
 		String ask = null;
-		if(sellOrders.peek().getPrice() == 0){
+		if(sellOrders.size() == 0 || sellOrders.peek().getPrice() == 0){
 			ask = "none";
 			quote += ask + " ";
 		}else{
@@ -44,7 +44,7 @@ public class Stock {
 		
 		String buy = null;
 		quote += "Bid: ";
-		if(buyOrders.peek().getPrice() == 0){
+		if(buyOrders.size() == 0 || buyOrders.peek().getPrice() == 0){
 			buy = "none";
 			quote += buy + " ";
 		}else{
