@@ -7,7 +7,7 @@ public class Stock {
 	
 	private String symbol;
 	private String name;
-	private double price;
+	private double lastPrice;
 	private PriorityQueue<TradeOrder> sellOrders, buyOrders;
 	private double hi, lo;
 	private int vol;
@@ -15,9 +15,11 @@ public class Stock {
 	public Stock(String symbol, String name, double price) {
 		this.symbol = symbol;
 		this.name = name;
-		this.price = price;
+		lastPrice = price;
 		this.sellOrders = new PriorityQueue<TradeOrder>(new PriceComparator());
 		this.buyOrders = new PriorityQueue<TradeOrder>(new PriceComparator());
+		hi = price;
+		lo = price;
 	}
 
 	public void placeOrder(TradeOrder order) {
@@ -35,10 +37,13 @@ public class Stock {
 		}else{
 			msg += order.getShares() + " shares at " + order.getPrice();
 		}
+		
+		order.getTrader().recieveMessage(msg);
+		
 	}
 	
 	public String getQuote(){
-		String strPrice = String.format("%.2f", price);
+		String strPrice = String.format("%.2f", lastPrice);
 		String strHi = String.format("%.2f", hi);
 		String strLo = String.format("%.2f", lo);
 		

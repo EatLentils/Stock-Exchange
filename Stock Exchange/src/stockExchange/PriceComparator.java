@@ -13,23 +13,19 @@ public class PriceComparator implements Comparator<TradeOrder> {
 	}
 	
 	public int compare(TradeOrder order1, TradeOrder order2){
-		double diff = order1.getPrice() - order2.getPrice();
+		if(order1.isLimit() && order2.isMarket()){
+			return 1;
+		}else if(order1.isMarket() && order2.isLimit()){
+			return -1;
+		}else if(order1.isMarket() && order2.isMarket()){
+			return 0;
+		}
+		int o1price = (int)(order1.getPrice()*100);
+		int o2price = (int)(order2.getPrice()*100);
 		if(asc){
-			if(diff < 0){
-				return 1;
-			}else if(diff > 0){
-				return -1;
-			}else{
-				return 0;
-			}
+			return o1price-o2price;
 		}else{
-			if(diff < 0){
-				return -1;
-			}else if(diff > 0){
-				return 1;
-			}else{
-				return 0;
-			}
+			return o2price-o1price;
 		}
 	}
 }
