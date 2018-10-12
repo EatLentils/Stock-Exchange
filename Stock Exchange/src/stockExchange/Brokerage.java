@@ -37,16 +37,20 @@ public class Brokerage implements Login
 
 	public int login(String name, String password)
 	{
+		boolean userAlreadyLoggedIn = false;
 		
-		if (name.length() < 4 || name.length() > 10)
+		if (TM.get(name) == null)
 			return -1;
-		else if (password.length() < 2 || password.length() > 10)
+		else if (TM.get(name).getPassword() != password)
 			return -2;
-		else if(TM.get(name) == null)
-			return -3;
 		else
 		{
 			Trader trade = TM.get(name);
+			for(Trader x : tradersLoggedIn){
+				if(x.equals(trade)){
+					return -3;
+				}
+			}
 			trade.openWindow();
 			tradersLoggedIn.add(trade);
 			return 0;
