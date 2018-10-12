@@ -13,7 +13,7 @@ public class Brokerage implements Login
 		TM = new TreeMap<String, Trader>();
 		tradersLoggedIn = new TreeSet<Trader>();
 	}
-	public int addUser(java.lang.String name, java.lang.String password)
+	public int addUser(String name, String password)
 	{
 		Set<String> s1 = TM.keySet();
 		
@@ -37,8 +37,6 @@ public class Brokerage implements Login
 
 	public int login(String name, String password)
 	{
-		boolean userAlreadyLoggedIn = false;
-		
 		if (TM.get(name) == null)
 			return -1;
 		else if (TM.get(name).getPassword() != password)
