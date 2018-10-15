@@ -37,11 +37,10 @@ public class Brokerage implements Login
 
 	public int login(String name, String password)
 	{
-		String pswd = TM.get(name).getPassword();
 		if (TM.get(name) == null){
 			return -1;
 		}
-		else if (!pswd.equals(password)){
+		else if (!TM.get(name).getPassword().equals(password)){
 			return -2;
 		}
 		else
