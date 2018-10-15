@@ -16,8 +16,8 @@ public class Stock {
 		this.symbol = symbol;
 		this.name = name;
 		lastPrice = price;
-		this.sellOrders = new PriorityQueue<TradeOrder>(new PriceComparator());
-		this.buyOrders = new PriorityQueue<TradeOrder>(new PriceComparator());
+		this.sellOrders = new PriorityQueue<TradeOrder>(new PriceComparator(true));
+		this.buyOrders = new PriorityQueue<TradeOrder>(new PriceComparator(false));
 		hi = price;
 		lo = price;
 	}
@@ -53,8 +53,12 @@ public class Stock {
 		
 		String ask = null;
 		if(sellOrders.size() == 0 || sellOrders.peek().getPrice() == 0){
-			ask = "none";
-			quote += ask + " ";
+			if(sellOrders.size() != 0 && sellOrders.peek().isMarket()){
+				quote += "market size: " + sellOrders.peek().getShares() + " ";
+			}else{
+				ask = "none";
+				quote += ask + " ";
+			}
 		}else{
 			ask = String.format("%.2f", sellOrders.peek().getPrice());
 			quote += ask + " size: " + sellOrders.peek().getShares() + " ";
@@ -63,8 +67,12 @@ public class Stock {
 		String buy = null;
 		quote += "Bid: ";
 		if(buyOrders.size() == 0 || buyOrders.peek().getPrice() == 0){
-			buy = "none";
-			quote += buy + " ";
+			if(buyOrders.size() != 0 && buyOrders.peek().isMarket()){
+				quote += "market size: " + buyOrders.peek().getShares() + " ";
+			}else{
+				ask = "none";
+				quote += ask + " ";
+			}
 		}else{
 			buy = String.format("%.2f", buyOrders.peek().getPrice());
 			quote += buy + " size: " + buyOrders.peek().getShares();
